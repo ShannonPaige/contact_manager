@@ -9,11 +9,17 @@ RSpec.describe EmailAddress, type: :model do
 
   it "is invalid when missing email address" do
     email_address.address = nil
+
     expect(email_address).to_not be_valid
   end
 
-  it "is invalid when missing person_id" do
+  it "must have a reference to a person" do
     email_address.person_id = nil
+
     expect(email_address).to_not be_valid
+  end
+
+  it "must be associated to a person" do
+    expect(email_address).to respond_to(:person)
   end
 end
