@@ -12,7 +12,8 @@
 
 <ul>
   <% @person.phone_numbers.each do |phone_number| %>
-  <li><%= phone_number.number %>  <%= link_to '[Edit]', edit_phone_number_path(phone_number) %></li>
+  <li><%= phone_number.number %>  <%= link_to '[Edit]', edit_phone_number_path(phone_number) %>
+  <%= link_to '[Delete]', phone_number_path(phone_number), :method => "delete" %></li>
   <% end %>
 </ul>
 
