@@ -19,11 +19,11 @@
 
 <ul>
   <% @person.email_addresses.each do |email_address| %>
-  <li><%= email_address.address %></li>
+  <li><%= email_address.address %> <%= link_to '[Edit]', edit_email_address_path(email_address) %></li>
   <% end %>
 </ul>
 
 <%= link_to 'Edit', edit_person_path(@person) %> |
 <%= link_to 'Add phone number', new_phone_number_path(person_id: @person.id) %> |
-<%= link_to 'Add email address', new_email_address_path(person_id: @person.id), id: "new_email_address" %> | 
+<%= link_to 'Add email address', new_email_address_path(person_id: @person.id), id: "new_email_address" %> |
 <%= link_to 'Back', people_path %>
