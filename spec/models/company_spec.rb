@@ -11,4 +11,12 @@ RSpec.describe Company, type: :model do
     company.name = nil
     expect(company).to_not be_valid
   end
+
+  xit 'has an array of phone numbers' do
+    expect(company.phone_numbers).to eq([])
+  end
+
+  xit 'has an array of emails' do
+    expect(company.email_addresses).to eq([])
+  end
 end
