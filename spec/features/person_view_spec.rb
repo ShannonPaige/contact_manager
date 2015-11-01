@@ -106,5 +106,20 @@ describe 'the person view', type: :feature do
       expect(page).to_not have_content(old_email)
     end
 
+    it "has links to delete an email" do
+      person.email_addresses.each do |email_address|
+        expect(page).to have_link('Delete', email_addresses_path(email_address))
+      end
+    end
+
+    it "can delete an email" do
+      email = person.email_addresses.first
+      old_email = email.address
+
+      first(:link, 'Delete').click
+
+      expect(current_path).to eq(person_path(person))
+      expect(page).to_not have_content(old_email)
+    end
   end
 end
